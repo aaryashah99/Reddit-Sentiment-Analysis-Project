@@ -1,43 +1,30 @@
-# Reddit Sentiment Analysis
+# Reddit Sentiment Analysis Pipeline
 
-Analyze sentiment in Reddit headlines from r/news over the past 7 days using NLP and Python.  
-This project collects Reddit post titles, computes sentiment scores, and visualizes daily sentiment trends.
+A modular Python pipeline that scrapes Reddit posts, performs sentiment analysis, and visualizes the results. Built for automation, extensibility, and clear insights from real-time social data.
 
-## Project Overview
+> NLP + Reddit API + Visualization = Insightful sentiment tracking
 
-This project builds an end-to-end data pipeline that:
-- Collects **top Reddit post titles** from the past 7 days using the Reddit API (via PRAW)
-- Scores each title using **VADER Sentiment Analysis** (from NLTK)
-- Visualizes **average daily sentiment** as a time series using `matplotlib` and `seaborn`
+---
 
-## Features
+## Project Structure
 
-- Accurate post collection per calendar day using `subreddit.new()` and UNIX timestamps
-- Sentiment scoring with VADER (compound polarity)
-- Data saved in structured CSV format: `reddit_posts.csv`
-- Matplotlib line plot showing daily sentiment trend
-- Pipenv-based isolated virtual environment
-- Secure credentials with `.env` and `python-dotenv`
-- Modular, readable code structure (`fetcher.py`, `analyzer.py`, `plotter.py`)
+| File/Folder         | Purpose                                               |
+|---------------------|-------------------------------------------------------|
+| `analyze.py`        | Main runner script to execute the entire pipeline     |
+| `reddit_sentiment/` | Internal module with fetch, analysis, and plotting logic |
+| `.env.example`      | Environment variable template                         |
+| `.gitignore`        | Excludes `.env`, `__pycache__`, etc.                 |
+| `Pipfile`           | Dependency and environment manager via `pipenv`       |
 
-## Technologies
+---
 
-| Tool            | Purpose                          |
-|-----------------|----------------------------------|
-| Python 3.11     | Core scripting language          |
-| PRAW            | Reddit API client                |
-| Pandas          | Data manipulation & storage      |
-| NLTK + VADER    | Sentiment analysis               |
-| Matplotlib      | Visualization                    |
-| Seaborn         | Chart styling                    |
-| Pipenv          | Dependency & environment manager |
-| dotenv          | Environment variable management  |
+## Key Features
 
+- Fetches Reddit posts using Reddit API (via `praw` or custom wrapper)
+- Applies sentiment analysis (likely using `TextBlob`, `VADER`, or `transformers`)
+- Saves cleaned data to CSV
+- Visualizes sentiment trends over time
+- Organized using modular Python components
 
-## Setup Instructions
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/reddit_sentiment_project.git
-   cd reddit_sentiment_project
+---
 
